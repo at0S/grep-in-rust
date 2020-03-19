@@ -1,8 +1,7 @@
 use structopt::StructOpt;
 use std::io::BufRead;
 
-#[derive(Debug)]
-#[derive(StructOpt)]
+#[derive(Debug, StructOpt)]
 struct Cli {
     pattern: String,
     
@@ -10,10 +9,13 @@ struct Cli {
     path: std::path::PathBuf,
 
     #[structopt(short="h", long="help")]
-    print_help: bool,
+    help: bool,
 
-    #[structopt(short="v", long="version")]
-    print_version: bool,
+    #[structopt(short="V", long="version")]
+    version: bool,
+
+    #[structopt(short="v", long="verbose")]
+    verbose: bool,
 }
 
 fn main() {
