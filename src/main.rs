@@ -1,5 +1,6 @@
 use structopt::StructOpt;
 use std::io::BufRead;
+use std::fs::File;
 
 #[derive(Debug, StructOpt)]
 struct Cli {
@@ -20,7 +21,7 @@ struct Cli {
 
 fn main() {
     let args = Cli::from_args();
-    let f = std::fs::File::open(&args.path)
+    let f = File::open(&args.path)
         .expect("Can't read file");
 
     let reader = std::io::BufReader::new(f);
